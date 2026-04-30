@@ -1,0 +1,10 @@
+.DS_Store
+
+# Arquivos originais soltos na raiz; as copias organizadas estao em data/
+/0*.pdf
+/corpus-text/
+
+# Saidas brutas do Graphify na raiz; as copias de submissao estao em results/
+/graphify-out/
+/graphify-out.zip
+
