@@ -18,6 +18,8 @@ Este repositório contém os artefatos do estudo de caso desenvolvido para a dis
 
 O trabalho utilizou o Graphify como ferramenta de apoio para transformar um conjunto de artigos científicos em um grafo de conhecimento. A partir do grafo, foram analisados os principais nós, as relações, as comunidades temáticas e as evidências sobre a diferença entre efetividade da CoT e fidelidade da CoT.
 
+As mesmas perguntas de análise também foram exploradas no NotebookLM, como apoio comparativo qualitativo. O objetivo desse uso adicional foi verificar se a leitura textual dos artigos reforçava ou tensionava os padrões observados no grafo gerado pelo Graphify.
+
 ## Pergunta que guiou a busca dos artigos
 
 Como a literatura científica revisada por pares discute a relação entre cadeias de raciocínio (CoT), explicabilidade e fidelidade em modelos de linguagem/reasoning models?
@@ -43,6 +45,7 @@ Os textos extraídos dos PDFs estão em:
 ## Ferramentas utilizadas
 
 - **Graphify:** ferramenta principal utilizada para gerar o grafo de conhecimento, identificar comunidades, produzir o relatório e exportar as visualizações.
+- **NotebookLM:** ferramenta utilizada como apoio comparativo qualitativo, a partir das mesmas perguntas aplicadas ao corpus, para contrastar respostas textuais com os padrões estruturados observados no grafo.
 
 Observação: recursos como **NetworkX** e **Leiden community detection** fazem parte do pipeline interno do Graphify. Eles não foram utilizados como ferramentas separadas, mas aparecem no processo porque o Graphify os utiliza para estruturar o grafo e identificar comunidades.
 
@@ -78,12 +81,27 @@ Principais nós identificados:
 - O grafo evidenciou relações entre fidelidade, racionalização, avaliação, grounding em grafos de conhecimento e recuperação de erros.
 - O Graphify ajudou a organizar a literatura em comunidades temáticas e a revelar padrões de análise.
 
+## Apoio comparativo com NotebookLM
+
+Além da exploração com Graphify, as três perguntas principais também foram submetidas ao NotebookLM. As respostas obtidas reforçaram os principais achados observados no grafo:
+
+1. **CoT, explicabilidade e fidelidade:** o NotebookLM destacou a tensão entre explicações plausíveis e explicações fiéis. A CoT aumenta a aparência de transparência, mas a literatura problematiza se essa explicação textual representa de fato o processo interno do modelo.
+2. **Explicação fiel ou racionalização plausível:** as respostas apontaram que a literatura recente tende a tratar muitas cadeias de raciocínio como racionalizações plausíveis ou explicações pós-hoc, especialmente quando há omissão de vieses, recuperação infiel de erros ou trajetórias de confiança que indicam decisão prévia.
+3. **Efetividade versus fidelidade:** o NotebookLM também reforçou a separação entre desempenho e fidelidade. Uma CoT pode ajudar o modelo a chegar a uma resposta correta ou mais organizada, mas isso não comprova que a explicação textual seja fiel ao processo que gerou a resposta.
+
+Essa comparação foi útil porque o Graphify evidenciou os padrões de forma estruturada, por meio de nós, arestas e comunidades, enquanto o NotebookLM produziu uma síntese textual mais direta dos mesmos debates. Assim, o NotebookLM foi usado como apoio interpretativo, e não como substituto da análise estruturada do grafo.
+
+As respostas completas registradas a partir do NotebookLM estão em:
+
+- `docs/notebooklm_respostas.md`
+
 ## Limitações
 
 - O corpus foi menor e focado, o que favorece profundidade, mas reduz abrangência.
 - O grafo simplifica nuances teóricas presentes nos artigos.
 - Relações inferidas e ambíguas precisam de validação crítica.
 - O Graphify foi utilizado como apoio à análise, não como fonte de verdade absoluta.
+- A comparação com NotebookLM foi qualitativa e exploratória, sem uma avaliação sistemática entre ferramentas.
 
 ## Estrutura do repositório
 
@@ -95,6 +113,9 @@ Principais nós identificados:
 ├── data/
 │   ├── papers/
 │   └── corpus-text/
+├── docs/
+│   ├── notebooklm_respostas.md
+│   └── roteiro_apresentacao.docx
 ├── results/
 │   └── graphify/
 │       ├── GRAPH_REPORT.md
@@ -113,4 +134,6 @@ Principais nós identificados:
 - Grafo em SVG: `results/graphify/graph.svg`
 - Grafo estruturado: `results/graphify/graph.json`
 - Relatório do Graphify: `results/graphify/GRAPH_REPORT.md`
+- Respostas do NotebookLM: `docs/notebooklm_respostas.md`
+- Roteiro da apresentação: `docs/roteiro_apresentacao.docx`
 - Referências: `references/REFERENCES.md`
